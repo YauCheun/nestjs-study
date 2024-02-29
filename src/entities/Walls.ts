@@ -1,7 +1,16 @@
+/*
+ * @Author: YauCheun 1272125039@qq.com
+ * @Date: 2024-02-26 23:53:53
+ * @LastEditors: YauCheun 1272125039@qq.com
+ * @LastEditTime: 2024-02-29 23:00:26
+ * @FilePath: \nestjs-study\src\entities\Walls.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("walls", { schema: "test_wall" })
 export class Walls {
+  [x: string]: any;
   @PrimaryGeneratedColumn({ type: "int", name: "id" })
   id: number;
 

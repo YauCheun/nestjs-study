@@ -1,3 +1,11 @@
+/*
+ * @Author: YauCheun 1272125039@qq.com
+ * @Date: 2024-02-26 22:32:32
+ * @LastEditors: YauCheun 1272125039@qq.com
+ * @LastEditTime: 2024-02-29 22:25:04
+ * @FilePath: \nestjs-study\src\walls\walls.controller.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import { Controller, Get, Post, Request, Query, Body, Param } from '@nestjs/common';
 import { WallsService } from './walls.service';
 import { Walls } from 'src/entities/Walls';
@@ -19,8 +27,8 @@ export class WallsController {
     return this.WallsService.deleteWall(body);
   }
   // 分页查询
-  @Get('findWallPage')
-  findWallPage(@Query('type') type: string, @Query('label') label: string, @Query('page') page: number, @Query('pagesize') pagesize: number) {
-    return this.WallsService.findWallPage(type, label, page, pagesize);
+  @Post('findWallPage')
+  findWallPage(@Body() body) {
+    return this.WallsService.findWallPage(body.type, body.label, body.page, body.pagesize,body.userId);
   }
 }

@@ -16,6 +16,7 @@ import { CommentsModule } from './comments/comments.module';
 import { Connection } from 'typeorm';
 import * as cors from 'cors';
 import { Http200Middleware } from './http-exception.filter';
+import { UploadModule } from './upload/upload.module';
 // 模块注册中心
 @Module({
   // 1. 定义数据库连接模块
@@ -30,7 +31,7 @@ import { Http200Middleware } from './http-exception.filter';
       entities: [__dirname + '/**/*.entities{.ts,.js}'], // 扫描本项目中.entity.ts或者.entity.js的文件
       synchronize: true, // 定义数据库表结构与实体类字段同步(这里一旦数据库少了字段就会自动加入,根据需要来使用)
       autoLoadEntities: true // 自动加载数据库实体文件
-    }), WallsModule, FeedbacksModule, CommentsModule],
+    }), WallsModule, FeedbacksModule, CommentsModule, UploadModule],
   controllers: [AppController],
   providers: [AppService],
 })
